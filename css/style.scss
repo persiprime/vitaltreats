@@ -1,0 +1,722 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "mixins";
+@import "variables";
+@import "animate";
+
+// Fonts
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+/*========================================================
+                      Main Styles
+=========================================================*/
+body {
+    color: #bbbaba;
+    font: 400 14px/23px $default-font;
+    -webkit-text-size-adjust: none;
+    background: map-get($scheme, secondary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $primary-font;
+    font-weight: 300;
+    line-height: 1;
+}
+
+h1{
+
+    font-size: 150px;
+
+    @media (max-width: 991px){
+        font-size: 120px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 85px;
+    }
+
+    @media (max-width: 479px) {
+        font-size: 55px;
+    }
+}
+
+h2{
+    font-size: 100px;
+    color: map-get($scheme, secondary);
+
+    @media (max-width: 767px) {
+        font-size: 80px;
+    }
+}
+
+h3{
+    font-size: 75px;
+
+    @media (max-width: 767px) {
+        font-size: 50px;
+    }
+
+    @media (max-width: 479px) {
+        font-size: 40px;
+    }
+}
+
+h4{
+    font-size: 50px;
+
+    @media (max-width: 767px) {
+        font-size: 40px;
+    }
+
+    @media (max-width: 479px) {
+        font-size: 35px;
+    }
+}
+
+h5{
+    font-size: 40px;
+    color: map-get($scheme, primary);
+
+    @media (max-width: 767px) {
+        font-size: 30px;
+    }
+}
+
+h6{
+    font-size: 20px;
+}
+
+p, .marked-list, .list{
+	a:hover{
+        text-decoration: underline;
+    }
+
+    .fa{
+    	text-decoration: none;
+    }
+}
+
+time {
+   display: block;
+}
+
+a {
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+
+    &:focus{
+        outline: none;
+    }
+
+    &:active{
+        background-color: transparent;
+    }
+
+    @include transition(.3s);
+}
+
+a[href^="tel:"],
+a[href^="callto:"] {
+    color: inherit;
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.fa{
+	line-height: inherit;
+}
+
+[class*='fa-']{
+    &:before{
+        font-weight: 400;
+    	font-family: $fa;
+    }
+}
+
+.page {
+    overflow: hidden;
+    min-height: 500px;
+
+    .lt-ie9 & {
+        min-width: 1200px;
+    }
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+    &_sm{
+        @media (max-width: 991px){
+            text-align: center;
+        }
+    }
+}
+.text-left_sm{
+    @media (max-width: 991px){
+    text-align: left;
+    }
+}
+.white{
+    color: #FFFFFF;
+}
+
+/*=======================================================
+                       Main Layout
+=========================================================*/
+
+h2 + h5{
+    margin-top: 65px;
+}
+h1 + h5{
+    margin-top: 10px;
+}
+h3 + h1{
+    margin-top: -10px;
+
+    @media (max-width: 767px) {
+        margin-top: 10px;
+    }
+}
+.badge + h2{
+    margin-top: 10px;
+}
+* + p{
+    margin-top: 20px;
+}
+* + .btn-2{
+    margin-top: 55px;
+}
+* + .mailform{
+    margin-top: 47px;
+}
+* + .inline-list{
+    margin-top: 27px;
+}
+/*=======================================================
+                        Components
+=========================================================*/
+
+/*==================     Brand     ======================*/
+.brand {
+    display: inline-block;
+    font-family: $primary-font;
+    font-weight: 300;
+    color: #FFFFFF;
+
+    &_name{
+        overflow: hidden;
+        color: #FFFFFF;
+    }
+    &_slogan{
+        display: inline-block;
+        position: relative;
+        font-size: 20px;
+        height: 42px;
+        width: 330px;
+        background: #414042;
+        line-height: 42px;
+
+        @media (max-width: 479px) {
+            width: 270px;
+        }
+    }
+
+    .logo {
+        display: block;
+
+        font-size: 20px;
+        text-transform: uppercase;
+        line-height: 53px;
+        word-spacing: 25px;
+    }
+
+    .logo + .brand_name{
+        margin-top: -5px;
+    }
+    .brand_name + .brand_slogan{
+        margin-top: 30px;
+    }
+}
+/*==================     Triangle     ======================*/
+.before{
+    position: absolute;
+    width: 21px;
+    height: 42px;
+    top: 0;
+    right: 100%;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include triangle(top_right, 10px, 21px, #414042);
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        @include triangle(bottom_right, 10px, 21px, #414042);
+    }
+    &__mod{
+        &:before{
+            @include triangle(top_right, 10px, 21px, map-get($scheme, primary));
+        }
+        &:after{
+            @include triangle(bottom_right, 10px, 21px, map-get($scheme, primary));
+        }
+    }
+}
+.after{
+    position: absolute;
+    width: 21px;
+    height: 42px;
+    top: 0;
+    left:  100%;
+
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include triangle(top_left, 21px, 10px, #414042);
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include triangle(bottom_left, 21px, 10px, #414042);
+
+    }
+
+    &__mod{
+        &:before{
+            @include triangle(top_left, 21px, 10px, map-get($scheme, primary));
+        }
+        &:after{
+            @include triangle(bottom_left, 21px, 10px, map-get($scheme, primary));
+        }
+    }
+}
+/*==================  Badge ======================*/
+.badge{
+    background: map-get($scheme, primary);
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    height: 42px;
+    width: 340px;
+    line-height: 42px;
+    text-align: left;
+    padding-left: 25px;
+    padding-right: 20px;
+    color: #FFFFFF;
+    font-family: $primary-font;
+    font-weight: 300;
+
+    @media (max-width: 479px) {
+        width: 270px;
+    }
+
+    &__mod{
+        text-align: right;
+    }
+}
+/*==================  Backgrounds  ======================*/
+.bg-primary{
+    background: map-get($scheme, primary);
+}
+/*==================     Icons     ======================*/
+.fa-facebook,
+.fa-twitter,
+.fa-google-plus,
+.fa-linkedin,
+.fa-instagram{
+    font: 400 25px/88px $fa;
+    color: #FFFFFF;
+    background: #7E827A;
+    width: 88px;
+    height: 88px;
+    text-align: center;
+    @include border-radius(3px);
+}
+
+.fa-envelope-o{
+    font: 400 113.35px/100px $fa;
+    color: map-get($scheme, primary);
+}
+
+/*==================    Buttons    ======================*/
+.btn{
+    display: inline-block;
+    width: 88px;
+    height: 88px;
+    @include border-radius(3px);
+    background: map-get($scheme, primary);
+    text-align: center;
+
+    span{
+        font: 400 25px/88px $fa;
+        color: #FFFFFF;
+    }
+
+
+    &:hover{
+        background: #7E827A;
+    }
+
+    &:active{
+        background: darken(#7E827A, 10%);
+    }
+
+    @media (max-width: 479px) {
+        width: 66px;
+        height: 66px;
+        span{
+            font: 400 25px/66px $fa;
+        }
+    }
+}
+
+.btn-2{
+    display: inline-block;
+    width: 240px;
+    text-transform: uppercase;
+    @include border-radius(3px);
+    background: map-get($scheme, primary);
+    color: #FFFFFF;
+    font: 400 15px/87px $primary-font;
+    text-align: center;
+    padding: 0 10px 0 75px;
+    position: relative;
+
+    &:before{
+        content: '\f044';
+        position: absolute;
+        top: 0;
+        left: 35px;
+        color: #FFFFFF;
+        font: 400 25px/87px $fa;
+    }
+
+    &:hover{
+        background: #7E827A;
+    }
+
+    &:active{
+        background: darken(#7E827A, 10%);
+    }
+}
+
+.btn-mailform{
+    display: inline-block;
+    text-transform: uppercase;
+    @include border-radius(3px);
+    background: map-get($scheme, primary);
+    color: #FFFFFF;
+    font: 400 15px/80px $primary-font;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    @include transition(.3s);
+
+    &:hover{
+        background: #7E827A;
+    }
+
+    &:active{
+        background: darken(#7E827A, 10%);
+    }
+
+}
+
+/*==================      Box      ======================*/
+.box {
+    @include clearfix();
+
+    &_aside{
+        float: left;
+    }
+
+    &_cnt{
+
+    }
+
+    &_cnt__no-flow{
+        overflow: hidden;
+    }
+}
+/*==================  Banner ======================*/
+.banner{
+    position: relative;
+    padding: 150px 0 140px;
+    height: 660px;
+
+    @media (max-width: 1199px) {
+        padding: 120px 0 60px;
+        height: auto;
+    }
+
+    &:before{
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 105%;
+        @include triangle(right, 155px, 660px, #fff);
+        z-index: 2;
+        @media (max-width: 1599px) {
+            left: 100%;
+        }
+        @media (max-width: 1199px) {
+            display: none;
+        }
+    }
+
+    &_img{
+        width: 910px;
+        position: absolute;
+        top: 0;
+        left: 105%;
+        height: 100%;
+        z-index: 1;
+
+        @media (max-width: 1599px) {
+            left: 100%;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+
+
+        }
+
+        .btn{
+            position: absolute;
+            top: 50%;
+            left: 42%;
+            z-index: 3;
+            margin-top: -44px;
+
+            @media (max-width: 1399px) {
+                left: 33%;
+            }
+
+        }
+        @media (max-width: 1199px) {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            margin-top: 30px;
+
+            img{
+                height: auto;
+            }
+
+            .btn{
+                top: 50%;
+                left: 50%;
+                margin-top: -44px;
+                margin-left: -44px;
+
+                @media (max-width: 479px) {
+                    margin-top: -33px;
+                    margin-left: -33px;
+                }
+
+            }
+        }
+    }
+}
+
+.banner-2{
+    position: relative;
+    padding: 150px 0 140px;
+    height: 660px;
+
+    @media (max-width: 1199px) {
+        padding: 120px 0 60px;
+        height: auto;
+    }
+
+    &:before{
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 105%;
+        @include triangle(left, 155px, 660px, #fff);
+        z-index: 2;
+        @media (max-width: 1599px) {
+            right: 100%;
+        }
+        @media (max-width: 1199px) {
+            display: none;
+        }
+    }
+
+    &_img{
+        width: 910px;
+        position: absolute;
+        top: 0;
+        right: 105%;
+        height: 100%;
+        z-index: 1;
+
+        @media (max-width: 1599px) {
+            right: 100%;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .btn{
+            position: absolute;
+            top: 50%;
+            right: 42%;
+            z-index: 3;
+            margin-top: -44px;
+
+            @media (max-width: 1399px) {
+                right: 33%;
+            }
+
+        }
+        @media (max-width: 1199px) {
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 100%;
+            margin-top: 30px;
+
+            img{
+                height: auto;
+            }
+
+            .btn{
+                top: 50%;
+                right: 50%;
+                margin-top: -44px;
+                margin-right: -44px;
+
+                @media (max-width: 479px) {
+                    margin-top: -33px;
+                    margin-right: -33px;
+                }
+
+            }
+        }
+    }
+}
+//==================    Thumb-wrap    ======================
+.thumb-wrap{
+    @include clearfix();
+
+
+    .thumb{
+        float: left;
+        width: 25%;
+        height: auto;
+
+        @media (max-width: 767px) {
+            width: 50%;
+
+        }
+        @media (max-width: 479px) {
+            width: 100%;
+        }
+    }
+}
+//==================    Copyright    ======================
+.copyright{
+    font: 300 15px/24px $primary-font;
+    color: #777d80;
+    text-transform: uppercase;
+}
+
+/*==================  Inline List  ======================*/
+.inline-list {
+    li {
+        display: inline-block;
+    }
+
+    li + li {
+        margin-left: 8px;
+    }
+
+    a:hover {
+        background: map-get($scheme, primary);
+    }
+}
+//==================    Imports    ======================
+
+@import "thumb";
+@import "parallax";
+@import "to-top";
+
+/*========================================================
+                     HEADER  Section
+=========================================================*/
+header {
+    padding: 420px 0 435px;
+    text-align: center;
+
+    @media (max-width: 767px) {
+        padding: 200px 0;
+    }
+
+    @media (max-width: 479px) {
+        padding: 150px 0;
+    }
+}
+
+/*========================================================
+                     CONTENT  Section
+=========================================================*/
+main {
+    display: block;
+    background: #FFFFFF;
+}
+.clr-secondary{
+    color: map-get($scheme, secondary);
+}
+/*==================      Well     ======================*/
+.well{
+    padding: 210px 0 220px;
+    @media (max-width: 767px) {
+        padding: 120px  0;
+    }
+}
+
+/*========================================================
+                     FOOTER  Styles
+=========================================================*/
+footer{
+    padding: 135px 0 140px;
+
+    .footer-right{
+        text-align: left;
+        display: inline-block;
+        padding-top: 45px;
+        @media (max-width: 767px) {
+            padding-top: 90px;
+        }
+    }
+}

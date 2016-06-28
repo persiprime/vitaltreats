@@ -1,0 +1,46 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-7 col-sm-12  text-center_sm wow fadeInLeft" data-wow-delay=".3s">
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="fa fa-envelope-o"></span>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="white">Subscribe to our Newsletter</h4>
+                    </div>
+                </div>
+                <form class='mailform' method="post" action="bat/rd-mailform.php">
+                    <input type="hidden" name="form-type" value="subscribe"/>
+                    <fieldset>
+
+                        <label data-add-placeholder="">
+                            <input type="text"
+                                   name="email"
+                                   placeholder="your email address"
+                                   data-constraints="@Email @NotEmpty"/>
+                        </label>
+
+                        <div class="mfControls">
+                            <button class="btn-mailform" type="submit">Subscribe</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-md-5 col-sm-12 text-right text-left_sm wow fadeInRight" data-wow-delay=".6s">
+                <div class="footer-right">
+                    <div class="copyright">
+                        © <span id="copyright-year"></span> | All Rights Reserved
+                    </div>
+                    <ul class="inline-list">
+                        <li><a href="#" class="fa fa-instagram"></a></li>
+                        <li><a href="#" class="fa fa-twitter"></a></li>
+                        <li><a href="#" class="fa fa-facebook"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
