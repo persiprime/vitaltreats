@@ -54,7 +54,7 @@ include('js/jquery.easing.1.3.js');
     if (o.length > 0) {
         include('js/jquery.equalheights.js');
     }
-})(jQuery); 
+})(jQuery);
 
 /* Copyright Year
  ========================================================*/
@@ -101,13 +101,6 @@ include('js/jquery.easing.1.3.js');
             });
         }
     }
-})(jQuery);
-
-/* Mailform
-=============================================*/
-;(function ($) {
-    include('js/mailform/jquery.form.min.js'); 
-    include('js/mailform/jquery.rd-mailform.min.js');
 })(jQuery);
 
 /* Orientation tablet fix

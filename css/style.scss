@@ -7,7 +7,7 @@
 @import "animate";
 
 // Fonts
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 /*========================================================
@@ -158,16 +158,9 @@ strong {
 }
 .text-center{
     text-align: center;
-    &_sm{
-        @media (max-width: 991px){
-            text-align: center;
-        }
-    }
 }
-.text-left_sm{
-    @media (max-width: 991px){
+.text-left{
     text-align: left;
-    }
 }
 .white{
     color: #FFFFFF;
@@ -197,13 +190,10 @@ h3 + h1{
     margin-top: 20px;
 }
 * + .btn-2{
-    margin-top: 55px;
-}
-* + .mailform{
-    margin-top: 47px;
+    margin-top: 50px;
 }
 * + .inline-list{
-    margin-top: 27px;
+    margin-top: 20px;
 }
 /*=======================================================
                         Components
@@ -347,34 +337,36 @@ h3 + h1{
 .fa-google-plus,
 .fa-linkedin,
 .fa-instagram{
-    font: 400 25px/88px $fa;
+    font: 400 25px/85px $fa;
     color: #FFFFFF;
     background: #7E827A;
-    width: 88px;
-    height: 88px;
+    width: 85px;
+    height: 85px;
     text-align: center;
     @include border-radius(3px);
-}
 
-.fa-envelope-o{
-    font: 400 113.35px/100px $fa;
-    color: map-get($scheme, primary);
+    &:hover {
+        background: map-get($scheme, primary);
+    }
+
+    &:active{
+        background: darken(map-get($scheme, primary), 10%);
+    }
 }
 
 /*==================    Buttons    ======================*/
 .btn{
     display: inline-block;
-    width: 88px;
-    height: 88px;
+    width: 85px;
+    height: 85px;
     @include border-radius(3px);
     background: map-get($scheme, primary);
     text-align: center;
 
     span{
-        font: 400 25px/88px $fa;
+        font: 400 25px/85px $fa;
         color: #FFFFFF;
     }
-
 
     &:hover{
         background: #7E827A;
@@ -385,10 +377,10 @@ h3 + h1{
     }
 
     @media (max-width: 479px) {
-        width: 66px;
-        height: 66px;
+        width: 65px;
+        height: 65px;
         span{
-            font: 400 25px/66px $fa;
+            font: 400 25px/65px $fa;
         }
     }
 }
@@ -400,19 +392,11 @@ h3 + h1{
     @include border-radius(3px);
     background: map-get($scheme, primary);
     color: #FFFFFF;
-    font: 400 15px/87px $primary-font;
-    text-align: center;
-    padding: 0 10px 0 75px;
+    font: 400 15px/85px $primary-font;
+    padding: 0 25px 0 75px;
+    @include transition(.3s);
     position: relative;
-
-    &:before{
-        content: '\f044';
-        position: absolute;
-        top: 0;
-        left: 35px;
-        color: #FFFFFF;
-        font: 400 25px/87px $fa;
-    }
+    text-align: center;
 
     &:hover{
         background: #7E827A;
@@ -423,25 +407,28 @@ h3 + h1{
     }
 }
 
-.btn-mailform{
-    display: inline-block;
-    text-transform: uppercase;
-    @include border-radius(3px);
-    background: map-get($scheme, primary);
-    color: #FFFFFF;
-    font: 400 15px/80px $primary-font;
-    text-align: center;
-    padding: 0 10px 0 10px;
-    @include transition(.3s);
+.btn-amazon {
 
-    &:hover{
-        background: #7E827A;
+    &:before{
+        content: $fa-amazon;
+        position: absolute;
+        top: 0;
+        left: 25px;
+        color: #FFFFFF;
+        font: 400 25px/85px $fa;
     }
+}
 
-    &:active{
-        background: darken(#7E827A, 10%);
+.btn-subscribe {
+
+    &:before{
+        content: $fa-envelope;
+        position: absolute;
+        top: 0;
+        left: 25px;
+        color: #FFFFFF;
+        font: 400 25px/85px $fa;
     }
-
 }
 
 /*==================      Box      ======================*/
@@ -653,16 +640,14 @@ h3 + h1{
 
 /*==================  Inline List  ======================*/
 .inline-list {
+    padding: 0;
+
     li {
         display: inline-block;
     }
 
     li + li {
         margin-left: 8px;
-    }
-
-    a:hover {
-        background: map-get($scheme, primary);
     }
 }
 //==================    Imports    ======================
@@ -709,7 +694,7 @@ main {
                      FOOTER  Styles
 =========================================================*/
 footer{
-    padding: 135px 0 140px;
+    padding: 100px 0;
 
     .footer-right{
         text-align: left;

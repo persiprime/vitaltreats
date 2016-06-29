@@ -9,7 +9,7 @@
   border-radius: 50%;
   @include box-shadow(4px 4px 8px 0 rgba(#000, .4));
 
-  position: fixed; 
+  position: fixed;
   right: 40px;
   bottom: 40px;
 
@@ -20,15 +20,17 @@
   z-index: 20;
 
   &:hover {
-    color: #fff;
     background: map-get($scheme, primary);
-    text-decoration: none;
+  }
+
+  &:active{
+      background: darken(map-get($scheme, primary), 10%);
   }
 }
 
-.mobile .toTop, 
+.mobile .toTop,
 .tablet .toTop{
-	display: none!important; 
+	display: none!important;
 }
 
 
