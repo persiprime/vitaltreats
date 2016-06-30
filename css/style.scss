@@ -166,6 +166,10 @@ strong {
     color: #FFFFFF;
 }
 
+*[hidden] {
+    display: none !important;
+}
+
 /*=======================================================
                        Main Layout
 =========================================================*/
@@ -208,7 +212,7 @@ h3 + h1{
 
     &_name{
         overflow: hidden;
-        color: #FFFFFF;
+        color: #666;
     }
     &_slogan{
         display: inline-block;
@@ -216,7 +220,7 @@ h3 + h1{
         font-size: 20px;
         height: 42px;
         width: 330px;
-        background: #414042;
+        background: #666;
         line-height: 42px;
 
         @media (max-width: 479px) {
@@ -224,18 +228,6 @@ h3 + h1{
         }
     }
 
-    .logo {
-        display: block;
-
-        font-size: 20px;
-        text-transform: uppercase;
-        line-height: 53px;
-        word-spacing: 25px;
-    }
-
-    .logo + .brand_name{
-        margin-top: -5px;
-    }
     .brand_name + .brand_slogan{
         margin-top: 30px;
     }
@@ -253,14 +245,14 @@ h3 + h1{
         position: absolute;
         top: 0;
         right: 0;
-        @include triangle(top_right, 10px, 21px, #414042);
+        @include triangle(top_right, 10px, 21px, #666);
     }
     &:after{
         content: '';
         position: absolute;
         bottom: 0;
         right: 0;
-        @include triangle(bottom_right, 10px, 21px, #414042);
+        @include triangle(bottom_right, 10px, 21px, #666);
     }
     &__mod{
         &:before{
@@ -283,14 +275,14 @@ h3 + h1{
         position: absolute;
         top: 0;
         left: 0;
-        @include triangle(top_left, 21px, 10px, #414042);
+        @include triangle(top_left, 21px, 10px, #666);
     }
     &:after{
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
-        @include triangle(bottom_left, 21px, 10px, #414042);
+        @include triangle(bottom_left, 21px, 10px, #666);
 
     }
 
@@ -660,15 +652,11 @@ h3 + h1{
                      HEADER  Section
 =========================================================*/
 header {
-    padding: 420px 0 435px;
+    padding: 40px 0 560px;
     text-align: center;
 
     @media (max-width: 767px) {
-        padding: 200px 0;
-    }
-
-    @media (max-width: 479px) {
-        padding: 150px 0;
+        padding: 20px 0 380px;
     }
 }
 
@@ -683,10 +671,35 @@ main {
     color: map-get($scheme, secondary);
 }
 /*==================      Well     ======================*/
-.well{
-    padding: 210px 0 220px;
-    @media (max-width: 767px) {
-        padding: 120px  0;
+.product-full{
+    height: 800px;
+
+    .parallax_cnt {
+        height: 100%;
+
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+
+            &:before {
+                content: none;
+            }
+
+            &:after {
+                content: none;
+            }
+
+            .btn-2 {
+                position: absolute;
+                left: 50%;
+                margin-left: -120px;
+                bottom: 40px;
+            }
+        }
     }
 }
 
