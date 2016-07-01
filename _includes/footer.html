@@ -1,20 +1,16 @@
 <footer>
     <div class="container text-center">
         <div class="wow fadeInLeft">
-            <h5 class="white">Subscribe to our Newsletter</h5>
+            <h5 class="white">{{ site.subscribeCallToAction }}</h5>
             <a id="subscribe" class="btn-2 btn-subscribe">Subscribe</a>
         </div>
-        <div class="text-left wow fadeInRight">
-            <div class="footer-right">
-                <div class="copyright">
-                    © <span id="copyright-year">2016</span> | All Rights Reserved
-                </div>
-                <ul class="inline-list">
-                    <li><a href="#" class="fa fa-instagram"></a></li>
-                    <li><a href="#" class="fa fa-twitter"></a></li>
-                    <li><a href="#" class="fa fa-facebook"></a></li>
-                </ul>
-            </div>
+        <div class="footer-bottom text-left wow fadeInRight">
+            <ul class="inline-list">
+                <li><a title="Follow us on Instagram" href="#" class="fa fa-instagram"></a></li>
+                <li><a title="Follow us on Facebook" href="#" class="fa fa-facebook"></a></li>
+                <li><a title="Contact Us" href="mailto:info@persiprime.com" class="fa fa-envelope-o"></a></li>
+            </ul>
+            <div class="copyright">{{ site.copyright }}</div>
         </div>
     </div>
 </footer>
