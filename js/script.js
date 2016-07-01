@@ -172,3 +172,18 @@ document.write('<meta name="viewport" content="width=device-width,initial-scale=
         });
     }
 })(jQuery);
+
+/* Mailchimp subscribe
+ ========================================================*/
+
+(function ($) {
+    $('#subscribe').on('click', function() {
+        require(["mojo/signup-forms/Loader"],
+                function(L) {
+                    L.start({"baseUrl":"mc.us13.list-manage.com",
+                             "uuid":"f7bf7e1d109ecc4732a8aae66",
+                             "lid":"72af39a23b"});
+                });
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    });
+})(jQuery);
